@@ -1,36 +1,36 @@
 # Artisan CLI
 
-- [Introduction](#introduction)
-- [Usage](#usage)
+- [Hyrje](#hyrje)
+- [Përdorimi](#perdorimi)
 
-<a name="introduction"></a>
-## Introduction
+<a name="hyrje"></a>
+## Hyrje
 
-Artisan is the name of the command-line interface included with Laravel. It provides a number of helpful commands for your use while developing your application. It is driven by the powerful Symfony Console component.
+Artisan është emri i ndërfaqes CLI të përfshirë me Laravel. Ofron disa komanda ndihmëse për përdorim gjatë zhvillimit të aplikacionit. Fuqizohet nga komponenti Symfony Console.
 
-<a name="usage"></a>
-## Usage
+<a name="perdorimi"></a>
+## Përdorimi
 
-To view a list of all available Artisan commands, you may use the `list` command:
+Për të parë një listë me të gjitha komandat e disponueshme, mund të përdorni komandën `list`:
 
-**Listing All Available Commands**
+**Listimi i të Gjitha Komandave**
 
 	php artisan list
 
-Every command also includes a "help" screen which displays and describes the command's available arguments and options. To view a help screen, simply precede the name of the command with `help`:
+Çdo komandë ka një seksion ndihme e cila shfaq dhe përshkruan argumentet dhe opsionet e asaj komande. Për të parë ndihmën, thjeshtë shtoni pas komandës fjalën kyçe `help`:
 
-**Viewing The Help Screen For A Command**
+**Shikimi i Ndihmës për një Komande**
 
 	php artisan help migrate
 
-You may specify the configuration environment that should be used while running a command using the `--env` switch:
+Mundet gjithashtu të përcaktoni mjedisin ku komanda do egzekutohet duke përdorur çelësin `--env`:
 
-**Specifying The Configuration Environment**
+**Përcaktimi i Mjedisit**
 
 	php artisan migrate --env=local
 
-You may also view the current version of your Laravel installation using the `--version` option:
+Mund të shihni lehtësisht versionin aktual të Laravel duke përdorur opsionin `--version`:
 
-**Displaying Your Current Laravel Version**
+**Shfaqja e Versionit Aktual të Laravel**
 
 	php artisan --version
