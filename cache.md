@@ -1,114 +1,114 @@
 # Cache
 
-- [Configuration](#configuration)
-- [Cache Usage](#cache-usage)
-- [Increments & Decrements](#increments-and-decrements)
-- [Cache Sections](#cache-sections)
-- [Database Cache](#database-cache)
+- [Konfigurimi](#konfigurimi)
+- [Përdorimi i Cache](#perdorimi-cache)
+- [Rritja & Zvogëlimi](#rritja-dhe-zvogelimi)
+- [Seksionet e Cache](#seksionet-e-cache)
+- [Cache në Databazë](#cache-ne-databaze)
 
-<a name="configuration"></a>
-## Configuration
+<a name="konfigurimi"></a>
+## Konfigurimi
 
-Laravel provides a unified API for various caching systems. The cache configuration is located at `app/config/cache.php`. In this file you may specify which cache driver you would like used by default throughout your application. Laravel supports popular caching backends like [Memcached](http://memcached.org) and [Redis](http://redis.io) out of the box.
+Laravel ofron një API të unifikuar për sisteme të ndryshme cache. Konfigurimi i cache ndodhet në `app/config/cache.php`. Në këtë skedar mund të përcaktoni cilin driver doni të përdorni. Laravel mbështet teknologji popullore për caching si [Memcached](http://memcached.org) dhe [Redis](http://redis.io).
 
-The cache configuration file also contains various other options, which are documented within the file, so make sure to read over these options. By default, Laravel is configured to use the `file` cache driver, which stores the serialized, cached objects in the filesystem. For larger applications, it is recommended that you use an in-memory cache such as Memcached or APC.
+Skedari i konfigurimit të cache mban gjithashtu opsione të tjera, të dokumentuara brenda skedari, kështu që sigurohuni ta lexoni. Laravel vjen me `file` cache driver të paravendosur, i cili i ruan objektet e serializuar në skedarë. Për aplikacione të mëdha, rekomandohet të përdorni cache memorje si Memcached apo APC.
 
-<a name="cache-usage"></a>
-## Cache Usage
+<a name="perdorimi-cache"></a>
+## Përdorimi i Cache
 
-**Storing An Item In The Cache**
+**Ruajtja në Cache**
 
-	Cache::put('key', 'value', $minutes);
+	Cache::put('celesi', 'vlera', $minutat);
 
-**Storing An Item In The Cache If It Doesn't Exist**
+**Ruajtja në Cache nëse Çelësi nuk Egziston**
 
-	Cache::add('key', 'value', $minutes);
+	Cache::add('celesi', 'vlera', $minutat);
 
-**Checking For Existence In Cache**
+**Kontrolli për Egzistencën e një Çelësi**
 
-	if (Cache::has('key'))
+	if (Cache::has('celesi'))
 	{
 		//
 	}
 
-**Retrieving An Item From The Cache**
+**Marrja nga Cache**
 
-	$value = Cache::get('key');
+	$vlera = Cache::get('celesi');
 
-**Retrieving An Item Or Returning A Default Value**
+**Marrja e një Vlere ose Kthimi i një Vlere Bazë**
 
-	$value = Cache::get('key', 'default');
+	$vlera = Cache::get('celesi', 'vlera baze');
 
-	$value = Cache::get('key', function() { return 'default'; });
+	$vlera = Cache::get('celesi', function() { return 'vlera baze'; });
 
-**Storing An Item In The Cache Permanently**
+**Ruajtja në Cache Përgjithmonë**
 
-	Cache::forever('key', 'value');
+	Cache::forever('celesi', 'vlera');
 
-Sometimes you may wish to retrieve an item from the cache, but also store a default value if the requested item doesn't exist. You may do this using the `Cache::remember` method:
+Ndonjëherë mund t'ju duhet të merrni një vlerë nga cache, por gjithashtu të ruani një vlerë bazë nëse çelësi nuk egziston. Mund ta bëni këtë duke përdorur metodën `Cache::remember`:
 
-	$value = Cache::remember('users', $minutes, function()
+	$vlera = Cache::remember('perdoruesit', $minutat, function()
 	{
-		return DB::table('users')->get();
+		return DB::table('perdoruesit')->get();
 	});
 
-You may also combine the `remember` and `forever` methods:
+Mund edhe të kombinoni metodat `remember` dhe `forever`:
 
-	$value = Cache::rememberForever('users', function()
+	$vlera = Cache::rememberForever('perdoruesit', function()
 	{
-		return DB::table('users')->get();
+		return DB::table('perdoruesit')->get();
 	});
 
-Note that all items stored in the cache are serialized, so you are free to store any type of data.
+Të gjitha vlerat e ruajtura në cache serializohen më parë, kështu që mund të përdorni çdo tip të dhëne që dëshironi.
 
-**Removing An Item From The Cache**
+**Fshirja e një Çelësi nga Cache**
 
-	Cache::forget('key');
+	Cache::forget('celesi');
 
-<a name="increments-and-decrements"></a>
-## Increments & Decrements
+<a name="rritja-dhe-zvogelimi"></a>
+## Rritja & Zvogëlimi
 
-All drivers except `file` and `database` support the `increment` and `decrement` operations:
+Të gjitha driver-at përveç `file` dhe `database` lejojnë përdorimin e `increment` dhe `decrement`, respektivisht për të zmadhuar dhe zvogëluar lehtë numrat.
 
-**Incrementing A Value**
+**Rritja e një Vlere**
 
-	Cache::increment('key');
+	Cache::increment('celesi');
 
-	Cache::increment('key', $amount);
+	Cache::increment('celesi', $sasia);
 
-**Decrementing A Value**
+**Zvogëlimi i një Vlere**
 
-	Cache::decrement('key');
+	Cache::decrement('celesi');
 
-	Cache::decrement('key', $amount);
+	Cache::decrement('celesi', $sasia);
 
-<a name="cache-sections"></a>
-## Cache Sections
+<a name="seksionet-e-cache"></a>
+## Seksionet e Cache
 
-> **Note:** Cache sections are not supported when using the `file` or `database` cache drivers.
+> **Shënim:** Seksionet e cache nuk mbështeten nga driver-at `file` ose `database`.
 
-Cache sections allow you to group related items in the cache, and then flush the entire section. To access a section, use the `section` method:
+Seksionet e cache ju lejojnë të gruponi vlera të lidhura me njëra tjetrën dhe pastrimin e të gjithave më një veprim. Për të aksesuar një seksion, përdorni metodën `section`:
 
-**Accessing A Cache Section**
+**Aksesimi i një Seksioni**
 
-	Cache::section('people')->put('John', $john);
+	Cache::section('njerezit')->put('Beni', $beni);
 
-	Cache::section('people')->put('Anne', $anne);
+	Cache::section('njerezit')->put('Arjana', $arjana);
 
-You may also access cached items from the section, as well as use the other cache methods such as `increment` and `decrement`:
+Gjithashtu mund të aksesoni çelësa individualë ose të përdorni metoda të tjera si `increment` dhe `decrement`:
 
-**Accessing Items In A Cache Section**
+**Aksesimi i Vlerave Individuale në një Seksion**
 
-	$anne = Cache::section('people')->get('Anne');
+	$arjana = Cache::section('njerezit')->get('Arjana');
 
-Then you may flush all items in the section:
+Në fund, mund ti pastroni të gjitha vlerat në një seksion:
 
-	Cache::section('people')->flush();
+	Cache::section('njerezit')->flush();
 
-<a name="database-cache"></a>
-## Database Cache
+<a name="cache-ne-databaze"></a>
+## Cache në Databazë
 
-When using the `database` cache driver, you will need to setup a table to contain the cache items. Below is an example `Schema` declaration for the table:
+Nëse vendosni të përdorni driver-in `database`, do t'ju duhet të ndërtoni një tabelë në databazë për të mbajtur vlerat e cache. Më poshtë është një skemë shembull për tabelën:
 
 	Schema::create('cache', function($table)
 	{

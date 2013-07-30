@@ -17,7 +17,7 @@ Për të parë një listë me të gjitha komandat e disponueshme, mund të përd
 
 	php artisan list
 
-Çdo komandë ka një seksion ndihme e cila shfaq dhe përshkruan argumentet dhe opsionet e asaj komande. Për të parë ndihmën, thjeshtë shtoni pas komandës fjalën kyçe `help`:
+Çdo komandë ka një seksion ndihme i cila shfaq dhe përshkruan argumentet dhe opsionet e asaj komande. Për të parë ndihmën, thjeshtë shtoni pas komandës fjalën kyçe `help`:
 
 **Shikimi i Ndihmës për një Komande**
 
