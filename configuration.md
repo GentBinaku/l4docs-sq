@@ -7,7 +7,7 @@
 <a name="hyrje"></a>
 ## Hyrje
 
-Të gjithë skedarët e konfigurimit të Laravel ruhen në direktorinë `app/config`. Çdo opsion në çdo skedar është i dokumentuar, kështu që sigurohuni ti lexoni dhe të bëheni familjar me opsionet në dispozicion.
+Të gjithë skedarët e konfigurimit të Laravel ruhen në direktorinë `app/config`. Çdo opsion në të gjithë skedarët është i dokumentuar, kështu që sigurohuni ti lexoni dhe të bëheni familjar me opsionet në dispozicion.
 
 Ndonjëherë mund t'ju duhet ti aksesioni opsionet e konfigurimit gjatë egzekutimit të aplikacionit. Këtë mund ta bëni përmes klasës `Config`: 
 
@@ -19,7 +19,7 @@ Mund të vendosni gjithashtu vlerën bazë që do të kthehen nëse opsioni i ko
 
 	$timezone = Config::get('app.timezone', 'UTC');
 
-Vini re sintaksën më "pikë", e cila përdoret për të aksesuar vlera në skedarë të ndryshëm. Pjesa e parë përcakton skedarin ("app"), ndërsa pjesa e dytë "opsionin".
+Vini re sintaksën më "pikë", e cila përdoret për të aksesuar vlera në skedarë të ndryshëm. Pjesa e parë përcakton skedarin ("app"), ndërsa pjesa e dytë opsionin ("timezone").
 
 Vlerat e konfigurimit mund edhe të vendosen gjatë egzekutimit:
 
@@ -27,7 +27,7 @@ Vlerat e konfigurimit mund edhe të vendosen gjatë egzekutimit:
 
 	Config::set('database.default', 'sqlite');
 
-Vlerat e konfigurimit të vendosura gjatë egzekutimit, vlejnë vetëm për kërkesën aktuale dhe nuk do të mbarten për kërkesa të tjera. Për vendosje definitive vlerash, duhet të ndryshoni skedarët e konfigurimit.
+Vlerat e konfigurimit të vendosura gjatë egzekutimit vlejnë vetëm për kërkesën aktuale dhe nuk do të mbarten për kërkesa të tjera. Për vendosje definitive vlerash, duhet të ndryshoni skedarët e konfigurimit.
 
 <a name="konfigurimi-mjedisit"></a>
 ## Konfigurimi i Mjedisit
@@ -46,7 +46,7 @@ Fillimisht krijoni një direktori brenda `config` që përputhet me emrin e mjed
 
 > **Shënim:** Mos përdorni 'testing' si emër mjedisi sepse është i rezervuar për unit testing.
 
-Kini parasysh që nuk ju duhet të shkruani çdo opsion që ndodhet në skedarin bazë të konfigurimit, por vetëm ato opsione që doni ti mbivendosni. Sistemi i konfigurimit punon me një sistem "ujëvare", ku lexohen të gjitha skedarët e konfigurimit dhe mbivendosen vetëm ato të përcaktuara në konfigurimin e mjedisit.
+Kini parasysh që nuk ju duhet të shkruani çdo opsion që ndodhet në skedarin bazë të konfigurimit, por vetëm ato opsione që doni ti mbivendosni. Sistemi i konfigurimit punon me një sistem "ujëvarë", ku lexohen të gjitha skedarët e konfigurimit dhe mbivendosen vetëm ato të përcaktuara në konfigurimin e mjedisit.
 
 Hapi tjetër është ti tregojmë Laravel se cilat janë kushtet për të përcaktuar mjedisin. Mjedisi bazë është gjithmonë `production`. Megjithatë, mund të krijoni mjedise të tjera brenda skedarit `bootstrap/start.php`. Në këtë skedar do të gjeni një thirrje `$app->detectEnvironment`. Vektori që i kalohet asaj metode përcakton mjedisin aktual. Mund të shtoni mjedise dhe emra kompjuteri të tjerë në atë vektor.
 
