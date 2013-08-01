@@ -1,38 +1,40 @@
-# Configuration
+# Konfigurimi
 
-- [Introduction](#introduction)
-- [Environment Configuration](#environment-configuration)
-- [Maintenance Mode](#maintenance-mode)
+- [Hyrje](#hyrje)
+- [Konfigurimi i Mjedisit](#konfigurimi-mjedisit)
+- [Statusi i Mirëmbajtjes](#statusi-mirembajtjes)
 
-<a name="introduction"></a>
-## Introduction
+<a name="hyrje"></a>
+## Hyrje
 
-All of the configuration files for the Laravel framework are stored in the `app/config` directory. Each option in every file is documented, so feel free to look through the files and get familiar with the options available to you.
+Të gjithë skedarët e konfigurimit të Laravel ruhen në direktorinë `app/config`. Çdo opsion në çdo skedar është i dokumentuar, kështu që sigurohuni ti lexoni dhe të bëheni familjar me opsionet në dispozicion.
 
-Sometimes you may need to access configuration values at run-time. You may do so using the `Config` class:
+Ndonjëherë mund t'ju duhet ti aksesioni opsionet e konfigurimit gjatë egzekutimit të aplikacionit. Këtë mund ta bëni përmes klasës `Config`: 
 
-**Accessing A Configuration Value**
+**Aksesimi i një Vlere Konfigurimi**
 
 	Config::get('app.timezone');
 
-You may also specify a default value to return if the configuration option does not exist:
+Mund të vendosni gjithashtu vlerën bazë që do të kthehen nëse opsioni i konfigurimit nuk egziston:
 
 	$timezone = Config::get('app.timezone', 'UTC');
 
-Notice that "dot" style syntax may be used to access values in the various files. You may also set configuration values at run-time:
+Vini re sintaksën më "pikë", e cila përdoret për të aksesuar vlera në skedarë të ndryshëm. Pjesa e parë përcakton skedarin ("app"), ndërsa pjesa e dytë "opsionin".
 
-**Setting A Configuration Value**
+Vlerat e konfigurimit mund edhe të vendosen gjatë egzekutimit:
+
+**Vendosja e një Vlere Konfigurimi**
 
 	Config::set('database.default', 'sqlite');
 
-Configuration values that are set at run-time are only set for the current request, and will not be carried over to subsequent requests.
+Vlerat e konfigurimit të vendosura gjatë egzekutimit, vlejnë vetëm për kërkesën aktuale dhe nuk do të mbarten për kërkesa të tjera. Për vendosje definitive vlerash, duhet të ndryshoni skedarët e konfigurimit.
 
-<a name="environment-configuration"></a>
-## Environment Configuration
+<a name="konfigurimi-mjedisit"></a>
+## Konfigurimi i Mjedisit
 
-It is often helpful to have different configuration values based on the environment the application is running in. For example, you may wish to use a different cache driver on your local development machine than on the production server. It is easy to accomplish this using environment based configuration.
+Shpesh ndihmon të keni disa konfigurime në bazë të mjedisit që aplikacioni po egzekutohet. Për shembull, mund t'ju duhet të përdorni një cache driver të ndryshëm në mjedis lokal dhë një tjetër në serverin e produksionit. Kjo arrihet lehtë duke përdorur konfigurim të bazuar në mjedise.
 
-Simply create a folder within the `config` directory that matches your environment name, such as `local`. Next, create the configuration files you wish to override and specify the options for that environment. For example, to override the cache driver for the local environment, you would create a `cache.php` file in `app/config/local` with the following content:
+Fillimisht krijoni një direktori brenda `config` që përputhet me emrin e mjedisit; për shembull: `local`. Më pas krijoni skedarin e konfigurimit që doni të mbivendosni për atë mjedis. Për shembull, për të mbivendosur cache driver-in për mjedisin lokal, duhet të krijoni një skedar `cache.php` në `app/config/local` me përmbajtjen më poshtë:
 
 	<?php
 
@@ -42,49 +44,49 @@ Simply create a folder within the `config` directory that matches your environme
 
 	);
 
-> **Note:** Do not use 'testing' as an environment name. This is reserved for unit testing.
+> **Shënim:** Mos përdorni 'testing' si emër mjedisi sepse është i rezervuar për unit testing.
 
-Notice that you do not have to specify _every_ option that is in the base configuration file, but only the options you wish to override. The environment configuration files will "cascade" over the base files.
+Kini parasysh që nuk ju duhet të shkruani çdo opsion që ndodhet në skedarin bazë të konfigurimit, por vetëm ato opsione që doni ti mbivendosni. Sistemi i konfigurimit punon me një sistem "ujëvare", ku lexohen të gjitha skedarët e konfigurimit dhe mbivendosen vetëm ato të përcaktuara në konfigurimin e mjedisit.
 
-Next, we need to instruct the framework how to determine which environment it is running in. The default environment is always `production`. However, you may setup other environments within the `bootstrap/start.php` file at the root of your installation. In this file you will find an `$app->detectEnvironment` call. The array passed to this method is used to determine the current environment. You may add other environments and machine names to the array as needed.
+Hapi tjetër është ti tregojmë Laravel se cilat janë kushtet për të përcaktuar mjedisin. Mjedisi bazë është gjithmonë `production`. Megjithatë, mund të krijoni mjedise të tjera brenda skedarit `bootstrap/start.php`. Në këtë skedar do të gjeni një thirrje `$app->detectEnvironment`. Vektori që i kalohet asaj metode përcakton mjedisin aktual. Mund të shtoni mjedise dhe emra kompjuteri të tjerë në atë vektor.
 
     <?php
 
     $env = $app->detectEnvironment(array(
 
-        'local' => array('your-machine-name'),
+        'local' => array('emri-i-kompjuterit'),
 
     ));
 
-You may also pass a `Closure` to the `detectEnvironment` method, allowing you to implement your own environment detection:
+Mundet gjithashtu ti kaloni një funksion anonim metodës `detectEnvironment`, ku mund të implementoni detektimin tuaj të mjedisit:
 
 	$env = $app->detectEnvironment(function()
 	{
 		return $_SERVER['MY_LARAVEL_ENV'];
 	});
 
-You may access the current application environment via the `environment` method:
+Mjedisin aktual të aplikacionit mund ta detektoni përmes metodës `environment`:
 
-**Accessing The Current Application Environment**
+**Aksesimi i Mjedisit Aktual të Aplikacionit**
 
-	$environment = App::environment();
+	$mjedisi = App::environment();
 
-<a name="maintenance-mode"></a>
-## Maintenance Mode
+<a name="statusi-mirembajtjes"></a>
+## Statusi i Mirëmbajtjes
 
-When your application is in maintenance mode, a custom view will be displayed for all routes into your application. This makes it easy to "disable" your application while it is updating. A call to the `App::down` method is already present in your `app/start/global.php` file. The response from this method will be sent to users when your application is in maintenance mode.
+Kur aplikacioni është në statusin e mirëmbajtjes, të gjitha rrugët e aplikacionit do të çojnë drejt një pamjeje të personalizuar. Kjo e bën të lehtë çaktivizimin e aplikacioni ndërkohë që është duke u përditësuar apo punuar në të. Një thirrje e metodës `App::down` ndodhet në skedarin `app/start/global.php`. Përgjigja e kësaj metode do të dërgohet tek vizitorët gjatë statusit të mirëmbajtjes.
 
-To enable maintenance mode, simply execute the `down` Artisan command:
+Për të aktivizuar statusin e mirëmbajtjes, egzekutoni komandën `down` në terminal:
 
 	php artisan down
 
-To disable maintenance mode, use the `up` command:
+Për ta çaktivizuar statusin e mirëmbajtjes, egzekutoni komandën `up` në terminal:
 
 	php artisan up
 
-To show a custom view when your application is in maintenance mode, you may add something like the following to your application's `app/start/global.php` file:
+Për të shfaqur një pamje të personalizuar gjatë kohës së mirëmbajtjes, mund të shtoni një kod si më poshtë në skedarin `app/start/global.php`:
 
 	App::down(function()
 	{
-		return Response::view('maintenance', array(), 503);
+		return Response::view('mirembajtje', array(), 503);
 	});
