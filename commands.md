@@ -1,135 +1,135 @@
-# Artisan Development
+# Zhvillimi i Komandave për Artisan
 
-- [Introduction](#introduction)
-- [Building A Command](#building-a-command)
-- [Registering Commands](#registering-commands)
-- [Calling Other Commands](#calling-other-commands)
+- [Hyrje](#hyrje)
+- [Ndërtimi i një Komande](#ndertimi-i-nje-komande)
+- [Regjistrimi i Komandave](#regjistrimi-i-komandave)
+- [Thërritja e Komandave të Tjera](#therritja-e-komandave-te-tjera)
 
-<a name="introduction"></a>
-## Introduction
+<a name="hyrje"></a>
+## Hyrje
 
-In addition to the commands provided with Artisan, you may also build your own custom commands for working with your application. You may store your custom commands in the `app/commands` directory; however, you are free to choose your own storage location as long as your commands can be autoloaded based on your `composer.json` settings.
+Krahas komandave të ofruara me Artisan, mund të ndërtoni komandat tuaja të personalizuara për të thjeshtësuar veprime në aplikacione. Direktoria standarte për të ruajtur komandat është `app/commands`, por mund të përdorni çdo direktori që dëshironi, për aq kohës sa është në skemën e vetëngarkimit në `composer.json`.
 
-<a name="building-a-command"></a>
-## Building A Command
+<a name="ndertimi-i-nje-komande"></a>
+## Ndërtimi i një Komande
 
-### Generating The Class
+### Gjenerimi i Klasës
 
-To create a new command, you may use the `command:make` Artisan command, which will generate a command stub to help you get started:
+Për të krijuar një komandë tuajën, përdorni komandën Artisan `command:make`, e cila gjeneron skeletin e klasës:
 
-**Generate A New Command Class**
+**Gjenero një Klasë për Komandën**
 
-	php artisan command:make FooCommand
+	php artisan command:make KomandaIme
 
-By default, generated commands will be stored in the `app/commands` directory; however, you may specify custom path or namespace:
+Klasa e komandës do të ruhet në direktorinë `app/commands`, por mund edhe të përcaktoni direktorinë ose namespace:
 
-	php artisan command:make FooCommand --path="app/classes" --namespace="Classes"
+	php artisan command:make KomandaIme --path="app/classes" --namespace="Classes"
 
-### Writing The Command
+### Shkrimi i Komandës
 
-Once your command is generated, you should fill out the `name` and `description` properties of the class, which will be used when displaying your command on the `list` screen.
+Pasi ta keni gjeneruar klasën e komandës, duhet të plotësoni tiparet `name` dhe `description` të klasës, që respektivisht vendosin emrin dhe përshkrimin e komandës, dhe do shfaqen në terminal kur të përdorni komandën `list`.
 
-The `fire` method will be called when your command is executed. You may place any command logic in this method.
+Metoda `fire` do të thërritet kur komanda të egzekutohet. Logjika e komandës mund të futet atje.
 
-### Arguments & Options
+### Argumentat & Opsionet
 
-The `getArguments` and `getOptions` methods are where you may define any arguments or options your command receives. Both of these methods return an array of commands, which are described by a list of array options.
+Metodat `getArguments` dhe `getOptions` janë vendi ku përcaktoni argumentat dhe opsionet që komanda merr. Të dyja metodat duhet të kthejnë një vektor me komanda të përshkruara nga një listë me opsione.
 
-When defining `arguments`, the array definition values represent the following:
+Kur përcaktoni argumentat, vektori përkufizohet si më poshtë:
 
-	array($name, $mode, $description, $defaultValue)
+	array($emri, $menyra, $pershkrimi, $vleraBaze)
 
-The argument `mode` may be any of the following: `InputArgument::REQUIRED` or `InputArgument::OPTIONAL`.
+Argumenti `menyra` mund të jetë: `InputArgument::REQUIRED` ose `InputArgument::OPTIONAL`, për të vendosur nëse argumenti është i detyrueshëm (REQUIRED) ose opsional (OPTIONAL).
 
-When defining `options`, the array definition values represent the following:
+Kur përcaktoni opsionet, vektori përkufizohet si më poshtë:
 
-	array($name, $shortcut, $mode, $description, $defaultValue)
+	array($emri, $shkurtimi, $menyra, $pershkrimi, $vleraBaze)
 
-For options, the argument `mode` may be: `InputOption::VALUE_REQUIRED`, `InputOption::VALUE_OPTIONAL`, `InputOption::VALUE_IS_ARRAY`, `InputOption::VALUE_NONE`.
+Argumenti `menyra` mund të jetë: `InputOption::VALUE_REQUIRED`, `InputOption::VALUE_OPTIONAL`, `InputOption::VALUE_IS_ARRAY`, `InputOption::VALUE_NONE`, për të vendosur nëse opsioni është i detyrueshëm (VALUE_REQUIRED), opsional (VALUE_OPTIONAL), vektor (VALUE_IS_ARRAY) apo si çelës (VALUE_NONE).
 
-The `VALUE_IS_ARRAY` mode indicates that the switch may be used multiple times when calling the command:
+`VALUE_IS_ARRAY` përcakton që opsioni mund të përdoret disa herë kur thërritet komanda:
 
-	php artisan foo --option=bar --option=baz
+	php artisan foo --option=nje --option=dy
 
-The `VALUE_NONE` option indicates that the option is simply used as a "switch":
+`VALUE_NONE` përcakton që opsioni mund të përdoret si çelës.
 
 	php artisan foo --option
 
-### Retrieving Input
+### Marrja e Vlerave të Argumentave dhe Opsioneve
 
-While your command is executing, you will obviously need to access the values for the arguments and options accepted by your application. To do so, you may use the `argument` and `option` methods:
+Kur komanda egzekutohet, do t'ju duhet të aksesoni vlerat e argumentave apo opsioneve që komanda pret. Për ta bërë këtë, mund të përdorni metodat `argument` dhe `option`:
 
-**Retrieving The Value Of A Command Argument**
+**Marrja e Vlerës së një Argumenti**
 
-	$value = $this->argument('name');
+	$vlera = $this->argument('emri');
 
-**Retrieving All Arguments**
+**Marrja e Vlerave të të Gjithë Argumentave**
 
-	$arguments = $this->argument();
+	$argumentat = $this->argument();
 
-**Retrieving The Value Of A Command Option**
+**Marrja e Vlerës së një Opsioni**
 
-	$value = $this->option('name');
+	$vlera = $this->option('emri');
 
-**Retrieving All Options**
+**Marrja e Vlerave të të Gjitha Opsioneve**
 
 	$options = $this->option();
 
-### Writing Output
+### Shfaqja e Informacioneve në Terminal
 
-To send output to the console, you may use the `info`, `comment`, `question` and `error` methods. Each of these methods will use the appropriate ANSI colors for their purpose.
+Për të shfaqur informacione në terminal, mund të përdorni metodat `info`, `comment`, `question` dhe `error`. Të gjitha metodat printojnë me ngjyra ANSI.
 
-**Sending Information To The Console**
+**Shfaqja e Informacioneve**
 
-	$this->info('Display this on the screen');
+	$this->info('Shfaqe ne ekran');
 
-**Sending An Error Message To The Console**
+**Shfaqja e një Mesazhi Gabimi**
 
-	$this->error('Something went wrong!');
+	$this->error('Ndodhi nje gabim!');
 
-### Asking Questions
+### Pyetjet
 
-You may also use the `ask` and `confirm` methods to prompt the user for input:
+Gjithashtu mund të bëni pyetje me metodat `ask` dhe `confirm` të cilat plotësohen në terminal:
 
-**Asking The User For Input**
+**Bërja e Pyetjes**
 
-	$name = $this->ask('What is your name?');
+	$emri = $this->ask('Si e keni emrin?');
 
-**Asking The User For Secret Input**
+**Pyetje për Mesazhe Sekrete**
 
-	$password = $this->secret('What is the password?');
+	$fjalekalimi = $this->secret('Cili eshte fjalekalimi?');
 
-**Asking The User For Confirmation**
+**Pyetja për Konfirmim**
 
-	if ($this->confirm('Do you wish to continue? [yes|no]'))
+	if ($this->confirm('Doni të vazhdoni? [po|jo]'))
 	{
-		//
+		// logjika
 	}
 
-You may also specify a default value to the `confirm` method, which should be `true` or `false`:
+Mund edhe të përcaktoni një vlerë bazë për metodën `confirm`, që duhet të jetë `true` ose `false`:
 
-	$this->confirm($question, true);
+	$this->confirm($pyetja, true);
 
-<a name="registering-commands"></a>
-## Registering Commands
+<a name="regjistrimi-i-komandave"></a>
+## Regjistrimi i Komandave
 
-Once your command is finished, you need to register it with Artisan so it will be available for use. This is typically done in the `app/start/artisan.php` file. Within this file, you may use the `Artisan::add` method to register the command:
+Pasi ta keni mbaruar komandën, duhet ta regjistroni me Artisan që të bëhet e disponueshme. Kjo zakonisht kryhet në skedarin `app/start/artisan.php`. Brenda atij skedari duhet të përdorni metodën `Artisan::add` për ta regjistruar komandën:
 
-**Registering An Artisan Command**
+**Regjistrimi i Komandës me Artisan**
 
-	Artisan::add(new CustomCommand);
+	Artisan::add(new KomandaIme);
 
-If your command is registered in the application [IoC container](/docs/ioc), you may use the `Artisan::resolve` method to make it available to Artisan:
+Nëse komanda është regjistruar në [Mbajtësin IoC](/docs/ioc), mund të përdorni metodën `Artisan::resolve` për ta bërë të disponueshëm tek Artisan:
 
-**Registering A Command That Is In The IoC Container**
+**Regjistrimi i Komandës që Ndodhet në Mbajtësin IoC**
 
-	Artisan::resolve('binding.name');
+	Artisan::resolve('regjistrimi.emri');
 
-<a name="calling-other-commands"></a>
-## Calling Other Commands
+<a name="therritja-e-komandave-te-tjera"></a>
+## Thërritja e Komandave të Tjera
 
-Sometimes you may wish to call other commands from your command. You may do so using the `call` method:
+Ndonjëherë mund t'ju duhet të thërrisni komanda të tjera prej komandës tuaj. Mund ta bëni duke përdorur metodën `call`:
 
-**Calling Another Command**
+**Thërritja e një Komande Tjetër**
 
-	$this->call('command.name', array('argument' => 'foo', '--option' => 'bar'));
+	$this->call('komanda.emri', array('argument' => 'nje', '--option' => 'dy'));
