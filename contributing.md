@@ -1,31 +1,31 @@
-# Contributing To Laravel
+# Kontributi për Laravel
 
-- [Introduction](#introduction)
-- [Pull Requests](#pull-requests)
+- [Hyrje](#hyrje)
+- [Kërkesat për Tërheqje](#pull-requests)
 - [Coding Guidelines](#coding-guidelines)
 
-<a name="introduction"></a>
-## Introduction
+<a name="hyrje"></a>
+## Hyrje
 
 Laravel is free, open-source software, meaning anyone can contribute to its development and progress. Laravel source code is currently hosted on [Github](http://github.com), which provides an easy method for forking the project and merging your contributions.
 
 <a name="pull-requests"></a>
-## Pull Requests
+## Kërkesat për Tërheqje
 
-The pull request process differs for new features and bugs. Before sending a pull request for a new feature, you should first create an issue with `[Proposal]` in the title. The proposal should describe the new feature, as well as implementation ideas. The proposal will then be reviewed and either approved or denied. Once a proposal is approved, a pull request may be created implementing the new feature. Pull requests which do not follow this guideline will be closed immediately.
+Proçesi i kërkesave për tërheqje (pull requests) ndryshon për opsione të reja dhe probleme. Përpara se të dërgoni një kërkesë për një opsion të ri, fillimisht duhet të krijoni një "issue" në GitHub me `[Proposal]` në titull. Propozimi duhet të përshkruajë opsionin e ri, së bashku me implementimin e idesë. Më pas, propozimi do të shqyrtohet dhe mund të aprovohet apo refuzohet. Kur propozimi të jetë aprovuar, mund të krijohet një kërkesë tërheqjeje që implementon opsionin e ri. Kërkesat për tërheqje që nuk ndjekin udhëzimet, do të mbyllen menjëherë.
 
-Pull requests for bugs may be sent without creating any proposal issue. If you believe that you know of a solution for a bug that has been filed on Github, please leave a comment detailing your proposed fix.
+Kërkesat për tërheqje për probleme mund të dërgohen pa krijuar një "issue" propozuese. Nëse besoni se keni gjetur një zgjidhje për një problem egzistues të hapur në GitHub, mund të lini një koment me propozimin tuaj se si mund të rregullohet.
 
-### Feature Requests
+### Kërkesat për Opsione
 
-If you have an idea for a new feature you would like to see added to Laravel, you may create an issue on Github with `[Request]` in the title. The feature request will then be reviewed by a core contributor.
+Nëse keni një ide për opsion të ri që doni të shtohet në Laravel, mund të krijoni një "issue" në GitHub me `[Request]` në titull. Opsioni do të shqyrtohet nga një nga kontribuesit kryesorë.
 
 <a name="coding-guidelines"></a>
-## Coding Guidelines
+## Udhëzimet e Kodimit
 
-Laravel follows the [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) and [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) coding standards. In addition to these standards, below is a list of other coding standards that should be followed:
+Laravel ndjek standartet e kodimit [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) dhe [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md). Krahas këtyre standarteve, më poshtë është një listë të disa udhëzimeve të kodimit që duhet të ndiqni:
 
-- Namespace declarations should be on the same line as `<?php`.
-- Class opening `{` should be on the same line as the class name.
-- Function and control structure opening `{` should be on a separate line.
-- Interface names are suffixed with `Interface` (`FooInterface`)
+- Deklarimi i namespaces duhet të jetë në një rresht me `<?php`.
+- Hapja e klasës `{` duhet të jetë në një rresht me emrin e klasës.
+- Hapjet e funksioneve dhe strukturave të kontrollit `{` duhet të jenë në një rresht.
+- Emrat e ndërfaqeve duhet të mbarojnë me `Interface` (`FooInterface`).
