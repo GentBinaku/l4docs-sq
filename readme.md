@@ -15,12 +15,12 @@ Laravel-i është një framework elegant për të krijuar aplikacione interneti 
 
 Dukumentimi është i shkruar në formatin [Markdown](http://daringfireball.net/projects/markdown/) dhe është i hapur për tu përkthyer në gjuhën shqipe nga të gjithë. Ju duhet të keni një llogari në Github për të kontibuar. Hapat që duhet të ndiqni janë si më poshtë:
 
- - Bëni një __fork__ të projektit në llogarinë tuaj në Github
- - Klonojeni __repo__-n e sapokrijuar lokalisht
+ - Bëni një _fork_ të projektit në llogarinë tuaj në Github
+ - Klonojeni _repo_-n e sapokrijuar lokalisht
  - Kaloni në branchin sq me anë të komandës `git scheckout sq`
  - Filloni të përktheni  
- - Dërgojeni përkthimin në __repo__-n tuaj: `git push origin sq` 
- - Bëj një kërkesë për tërheqje (__pull request__)
+ - Dërgojeni përkthimin në _repo_-n tuaj: `git push origin sq` 
+ - Bëj një kërkesë për tërheqje - _pull request_
  
 Pas kësaj përkthyimi juaj do të shqyrtohet dhe rrjedhimisht do të bëhet pjesë e dokumentimit zyrtar. 
 
@@ -31,4 +31,4 @@ Teksti i përkthyer duhet:
 
  - Të jetë i shkruar në gjuhën shqipe standarte
  - Të dërgohet për shqyrtimi sipas hapave në seksionin **Si të Kontribuoj**
-  
+ 	 
