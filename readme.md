@@ -13,7 +13,11 @@ Laravel-i është një framework elegant për të krijuar aplikacione interneti 
 <a name="si-te-kotribuoj"></a>
 ## Si të Kontribuoj
 
-Dukumentimi është i shkruar në formatin [Markdown](http://daringfireball.net/projects/markdown/) dhe është i hapur për tu përkthyer në gjuhën shqipe nga të gjithë. Ju duhet të keni një llogari në Github për të kontibuar. Hapat që duhet të ndiqni janë si më poshtë:
+Dukumentimi është i shkruar në formatin [Markdown](http://daringfireball.net/projects/markdown/) dhe është i hapur për tu përkthyer në gjuhën shqipe nga të gjithë. Ju duhet të keni një llogari në Github për të kontibuar. 
+
+### a) Dërgimi i përkthimeve
+ 
+Hapat që duhet të ndiqni janë si më poshtë:
 
  - Bëni një _fork_ të projektit në llogarinë tuaj në Github
  - Klonojeni _repo_-n e sapokrijuar lokalisht
@@ -23,6 +27,15 @@ Dukumentimi është i shkruar në formatin [Markdown](http://daringfireball.net/
  - Bëj një kërkesë për tërheqje - _pull request_
  
 Pas kësaj përkthyimi juaj do të shqyrtohet dhe rrjedhimisht do të bëhet pjesë e dokumentimit zyrtar. 
+
+### a) Marrja e përkthimeve të fundit nga *repo*-ja zyrtare
+
+Në momentin që ju dërgoni kontributet tuaja për tu pranuar në dokumentacion, edhe të tjerë përkthyes bëjnë të njëjtën gjë. Kjo do të thotë që *repo*-ja juaj nuk përkon më me *repo*-n zyrtare dhe lipset që ju t'i sinkronizoni ato. Kjo realizhet në këtë mënyrë:
+
+ - Shtojeni si *remote* repon zyrtare: `git add upstream sq git@github.com:fadion/l4docs-sq.git`
+ - Merrni versionin më të fundit të *repo*s zyrtare: `git pull upstream sq`
+ 
+Përpiquni ta bëni këtë hapin e dyte çdo herë para se të filloni të përktheni materiale të reja. Kjo shmang në maksimum konfliktet mes kontributeve të ndryshme.
 
 <a name="Rregullorja"></a>
 ## Rregullorja
