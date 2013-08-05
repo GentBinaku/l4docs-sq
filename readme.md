@@ -33,7 +33,7 @@ Pas kësaj përkthyimi juaj do të shqyrtohet dhe rrjedhimisht do të bëhet pje
 Në momentin që ju dërgoni kontributet tuaja për tu pranuar në dokumentacion, edhe të tjerë përkthyes bëjnë të njëjtën gjë. Kjo do të thotë që *repo*-ja juaj nuk përkon më me *repo*-n zyrtare dhe lipset që ju t'i sinkronizoni ato. Kjo realizhet në këtë mënyrë:
 
  - Shtojeni si *remote* repon zyrtare: `git remote add upstream git@github.com:fadion/l4docs-sq.git`
- - Merrni versionin më të fundit të *repo*s zyrtare: `git pull upstream sq`
+ - Merrni versionin më të fundit të *repo*-s zyrtare: `git pull upstream sq`
  
 Përpiquni ta bëni këtë hapin e dyte çdo herë para se të filloni të përktheni materiale të reja. Kjo shmang në maksimum konfliktet mes kontributeve të ndryshme.
 
