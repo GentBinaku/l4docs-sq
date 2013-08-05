@@ -74,7 +74,7 @@ Mjedisin aktual të aplikacionit mund ta detektoni përmes metodës `environment
 <a name="statusi-mirembajtjes"></a>
 ## Statusi i Mirëmbajtjes
 
-Kur aplikacioni është në statusin e mirëmbajtjes, të gjitha rrugët e aplikacionit do të çojnë drejt një pamjeje të personalizuar. Kjo e bën të lehtë çaktivizimin e aplikacioni ndërkohë që është duke u përditësuar apo punuar në të. Një thirrje e metodës `App::down` ndodhet në skedarin `app/start/global.php`. Përgjigja e kësaj metode do të dërgohet tek vizitorët gjatë statusit të mirëmbajtjes.
+Kur aplikacioni është në statusin e mirëmbajtjes, të route-at e aplikacionit do të çojnë drejt një pamjeje të personalizuar. Kjo e bën të lehtë çaktivizimin e aplikacionit ndërkohë që është duke u përditësuar apo punuar në të. Një thirrje e metodës `App::down` ndodhet në skedarin `app/start/global.php`. Përgjigja e kësaj metode do të dërgohet tek vizitorët gjatë statusit të mirëmbajtjes.
 
 Për të aktivizuar statusin e mirëmbajtjes, egzekutoni komandën `down` në terminal:
 
