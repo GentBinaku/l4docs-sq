@@ -1,63 +1,63 @@
-# Installation
+# Instalimi
 
-- [Install Composer](#install-composer)
-- [Install Laravel](#install-laravel)
-- [Server Requirements](#server-requirements)
-- [Configuration](#configuration)
+- [Instalimi i Composer](#instalimi-i-composer)
+- [Instalimi i Laravel](#instalimi-i-laravel)
+- [Kërkesat e Serverit](#kerkesat-e-serverit)
+- [Konfigurimi](#konfigurimi)
 - [Pretty URLs](#pretty-urls)
 
-<a name="install-composer"></a>
-## Install Composer
+<a name="instalimi-i-composer"></a>
+## Instalimi i Composer
 
-Laravel utilizes [Composer](http://getcomposer.org) to manage its dependencies. First, download a copy of the `composer.phar`. Once you have the PHAR archive, you can either keep it in your local project directory or move to `usr/local/bin` to use it globally on your system. On Windows, you can use the Composer [Windows installer](https://getcomposer.org/Composer-Setup.exe).
+Laravel përdor [Composer](http://getcomposer.org) për ti menagjuar vartësitë e saj. Së pari, shkarkoni një kopje të `composer.phar`. Pasi që keni shkarkuar arkivën PHAR, ju ose mund ta mbani atë në ndonjë follder lokal, apo ta zhvendosni në `usr/local/bin` për të pasur mundësi ta përdorni në gjithë sistemin tuaj. Në sistemin operativ Windows, ju mund ta përdorni këtë [installer](https://getcomposer.org/Composer-Setup.exe).
 
-<a name="install-laravel"></a>
-## Install Laravel
+<a name="instalimi-i-laravel"></a>
+## Instalimi i Laravel
 
-### Via Composer Create-Project
+### Përmes Composer Create-Project
 
-You may install Laravel by issuing the Composer `create-project` command in your terminal:
+Ju mund ta instaloni Laravel-in duke shtypur komandën e Composer `create-project` në terminal:
 
 	composer create-project laravel/laravel
 
-### Via Download
+### Përmes shkarkimit
 
-Once Composer is installed, download the [latest version](https://github.com/laravel/laravel/archive/master.zip) of the Laravel framework and extract its contents into a directory on your server. Next, in the root of your Laravel application, run the `php composer.phar install` (or `composer install`) command to install all of the framework's dependencies. This process requires Git to be installed on the server to successfully complete the installation.
+Pasi që keni instaluar Composer, shkarkoni [verzionin e fundit](https://github.com/laravel/laravel/archive/master.zip) të Laravel dhe vendosini fajllat në një follder në serverin tuaj. Pastaj, në follderin kryesor të aplikacionit tuaj në Laravel, ekzekutoni komandën `php composer.phar install` (ose `composer install`) për ti instaluar të gjithë fajllat e nevojshëm. Për ta përfunduar me sukses këtë proces, Git duhet të jetë i instaluar në serverin tuaj.
 
-If you want to update the Laravel framework, you may issue the `php composer.phar update` command.
+Nëse doni ta përditësoni Laravel, thjeshtë ekzekutoni komandën `php composer.phar update`.
 
-<a name="server-requirements"></a>
-## Server Requirements
+<a name="kerkesat-e-serverit"></a>
+## Kërkesat e Serverit
 
-The Laravel framework has a few system requirements:
+Laravel ka disa kërkesa të serverit në mënyrë që të funksionojë si duhet:
 
 - PHP >= 5.3.7
 - MCrypt PHP Extension
 
-<a name="configuration"></a>
-## Configuration
+<a name="konfigurimi"></a>
+## Konfigurimi
 
-Laravel needs almost no configuration out of the box. You are free to get started developing! However, you may wish to review the `app/config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your application.
+Nëse mund të themi, Laravel-it nuk i duhet fare konfigurim. You jeni të lirshëm të filloni zhvillimit të aplikacioneve menjëherë. Gjithsesi, ndoshta do jeni të interesuar ti hidhni një sy fajllit `app/config/app.php` dhe dokumentimit të tij. Ky fajll përmban disa opcione si `timezone`dhe `locale` që ndoshta do ju duhet ti ndërroni për aplikacionin tuaj.
 
-> **Note:** One configuration option you should be sure to set is the `key` option within `app/config/app.php`. This value should be set to a 32 character, random string. This key is used when encrypting values, and encrypted values will not be safe until it is properly set. You can set this value quickly by using the following artisan command `php artisan key:generate`.
+> **Shënim:** Një opcion i konfigurimit i cili nuk duhet të harrohet të rregullohet, është opcioni `key` në fajllin `app/config/app.php`. Kjo vlerë duhet të jetë një 'string' prej 32 shifrash. Ky opcion përdoret për kodim të vlerave, dhe ato vlera nuk do jenë të sigurta përderisa ky opcion nuk është rregulluar si duhet. Ju mund ta rregulloni këtë opcion thjeshtë dhe shpejtë duke përdorur komandën e artisan, `php artisan key:generate`.
 
 <a name="permissions"></a>
-### Permissions
-Laravel requires one set of permissions to be configured - folders within app/storage require write access by the web server.
+### Autorizimet
+Laravel kërkon disa autorizime nga ana e serverit - follderët e vendosur brenda app/storage duhet të kena qasje për shkruarje (write access).
 
 <a name="paths"></a>
-### Paths
+### Lokacionet
 
-Several of the framework directory paths are configurable. To change the location of these directories, check out the `bootstrap/paths.php` file.
+Shumica nga lokacionet e dosjeve të Laravel janë të ndryshueshme. Për ti ndryshuar ato lokacioni, shikojeni fajllin `bootstrap/paths.php`.
 
-> **Note:** Laravel is designed to protect your application code, and local storage by placing only files that are necessarily public in the public folder.  It is recommended that you either set the public folder as your site's documentRoot (also known as a web root) or to place the contents of public into your site's root directory and place all of Laravel's other files outside the web root. 
+> **Shënim:** Laravel është krijuar për ta mbrojtur kodin e aplikacionit tuaj, dhe fajllat në pergjithësi, duke mos i lejuar të shfaqen në follderin kryesor përderisa nuk është e nevojshme. Preferohet që ose ta konfiguroni follderin kryesor si documentRoot, ose ti vendosni të gjitha fajllat e follderit kryesor në follderin kryesor të serverit tuaj, dhe pastaj të gjithë fajllat tjerë të Laravel jashtë atij follderi. 
 
 <a name="pretty-urls"></a>
 ## Pretty URLs
 
-The framework ships with a `public/.htaccess` file that is used to allow URLs without `index.php`. If you use Apache to serve your Laravel application, be sure to enable the `mod_rewrite` module.
+Laravel përmban edhe fajllin `public/.htaccess` që shfrytëzohet për ta fshehur `index.php` nga URL-të. Nëse përdorni Apache në serverin tuaj, sigurohuni që ta aktivizoni modulin `mod_rewrite`.
 
-If the `.htaccess` file that ships with Laravel does not work with your Apache installation, try this one:
+Nëse fajlli `.htaccess` që vie bashkë me Laravel nuk funksionon me serverin tuaj me Apache, përdoreni këtë metodë:
 
 	Options +FollowSymLinks
 	RewriteEngine On
