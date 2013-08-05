@@ -29,7 +29,7 @@ Klasa e komandës do të ruhet në direktorinë `app/commands`, por mund edhe t�
 
 Pasi ta keni gjeneruar klasën e komandës, duhet të plotësoni tiparet `name` dhe `description` të klasës, që respektivisht vendosin emrin dhe përshkrimin e komandës, dhe do shfaqen në terminal kur të përdorni komandën `list`.
 
-Metoda `fire` do të thërritet kur komanda të egzekutohet. Logjika e komandës mund të futet atje.
+Metoda `fire` do të thërritet kur komanda të ekzekutohet. Logjika e komandës mund të futet atje.
 
 ### Argumentat & Opsionet
 
@@ -57,7 +57,7 @@ Argumenti `menyra` mund të jetë: `InputOption::VALUE_REQUIRED`, `InputOption::
 
 ### Marrja e Vlerave të Argumentave dhe Opsioneve
 
-Kur komanda egzekutohet, do t'ju duhet të aksesoni vlerat e argumentave apo opsioneve që komanda pret. Për ta bërë këtë, mund të përdorni metodat `argument` dhe `option`:
+Kur komanda ekzekutohet, do t'ju duhet të aksesoni vlerat e argumentave apo opsioneve që komanda pret. Për ta bërë këtë, mund të përdorni metodat `argument` dhe `option`:
 
 **Marrja e Vlerës së një Argumenti**
 
