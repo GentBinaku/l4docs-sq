@@ -9,7 +9,7 @@
 
 Të gjithë skedarët e konfigurimit të Laravel ruhen në direktorinë `app/config`. Çdo opsion në të gjithë skedarët është i dokumentuar, kështu që sigurohuni ti lexoni dhe të bëheni familjar me opsionet në dispozicion.
 
-Ndonjëherë mund t'ju duhet ti aksesioni opsionet e konfigurimit gjatë egzekutimit të aplikacionit. Këtë mund ta bëni përmes klasës `Config`: 
+Ndonjëherë mund t'ju duhet ti aksesioni opsionet e konfigurimit gjatë ekzekutimit të aplikacionit. Këtë mund ta bëni përmes klasës `Config`: 
 
 **Aksesimi i një Vlere Konfigurimi**
 
@@ -21,18 +21,18 @@ Mund të vendosni gjithashtu vlerën bazë që do të kthehen nëse opsioni i ko
 
 Vini re sintaksën më "pikë", e cila përdoret për të aksesuar vlera në skedarë të ndryshëm. Pjesa e parë përcakton skedarin ("app"), ndërsa pjesa e dytë opsionin ("timezone").
 
-Vlerat e konfigurimit mund edhe të vendosen gjatë egzekutimit:
+Vlerat e konfigurimit mund edhe të vendosen gjatë ekzekutimit:
 
 **Vendosja e një Vlere Konfigurimi**
 
 	Config::set('database.default', 'sqlite');
 
-Vlerat e konfigurimit të vendosura gjatë egzekutimit vlejnë vetëm për kërkesën aktuale dhe nuk do të mbarten për kërkesa të tjera. Për vendosje definitive vlerash, duhet të ndryshoni skedarët e konfigurimit.
+Vlerat e konfigurimit të vendosura gjatë ekzekutimit vlejnë vetëm për kërkesën aktuale dhe nuk do të mbarten për kërkesa të tjera. Për vendosje definitive vlerash, duhet të ndryshoni skedarët e konfigurimit.
 
 <a name="konfigurimi-mjedisit"></a>
 ## Konfigurimi i Mjedisit
 
-Shpesh ndihmon të keni disa konfigurime në bazë të mjedisit që aplikacioni po egzekutohet. Për shembull, mund t'ju duhet të përdorni një cache driver të ndryshëm në mjedis lokal dhë një tjetër në serverin e produksionit. Kjo arrihet lehtë duke përdorur konfigurim të bazuar në mjedise.
+Shpesh ndihmon të keni disa konfigurime në bazë të mjedisit që aplikacioni po ekzekutohet. Për shembull, mund t'ju duhet të përdorni një cache driver të ndryshëm në mjedis lokal dhë një tjetër në serverin e produksionit. Kjo arrihet lehtë duke përdorur konfigurim të bazuar në mjedise.
 
 Fillimisht krijoni një direktori brenda `config` që përputhet me emrin e mjedisit; për shembull: `local`. Më pas krijoni skedarin e konfigurimit që doni të mbivendosni për atë mjedis. Për shembull, për të mbivendosur cache driver-in për mjedisin lokal, duhet të krijoni një skedar `cache.php` në `app/config/local` me përmbajtjen më poshtë:
 
@@ -76,11 +76,11 @@ Mjedisin aktual të aplikacionit mund ta detektoni përmes metodës `environment
 
 Kur aplikacioni është në statusin e mirëmbajtjes, të route-at e aplikacionit do të çojnë drejt një pamjeje të personalizuar. Kjo e bën të lehtë çaktivizimin e aplikacionit ndërkohë që është duke u përditësuar apo punuar në të. Një thirrje e metodës `App::down` ndodhet në skedarin `app/start/global.php`. Përgjigja e kësaj metode do të dërgohet tek vizitorët gjatë statusit të mirëmbajtjes.
 
-Për të aktivizuar statusin e mirëmbajtjes, egzekutoni komandën `down` në terminal:
+Për të aktivizuar statusin e mirëmbajtjes, ekzekutoni komandën `down` në terminal:
 
 	php artisan down
 
-Për ta çaktivizuar statusin e mirëmbajtjes, egzekutoni komandën `up` në terminal:
+Për ta çaktivizuar statusin e mirëmbajtjes, ekzekutoni komandën `up` në terminal:
 
 	php artisan up
 

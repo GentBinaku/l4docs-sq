@@ -7,7 +7,7 @@
 <a name="hyrje"></a>
 ## Hyrje
 
-Laravel is free, open-source software, meaning anyone can contribute to its development and progress. Laravel source code is currently hosted on [Github](http://github.com), which provides an easy method for forking the project and merging your contributions.
+Laravel është një software falas dhe me kod të hapur, që do të thotë se kushdo mund të kontribojë në zhvillimin dhe progresin e tij. Kodi i Laravel është aktualisht i ruajtur në [Github](http://github.com), i cili ofron metoda të lehta për `fork` të projektit dhe implementimin e kontributeve.
 
 <a name="pull-requests"></a>
 ## Kërkesat për Tërheqje

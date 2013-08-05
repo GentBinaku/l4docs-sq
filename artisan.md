@@ -23,7 +23,7 @@ Për të parë një listë me të gjitha komandat e disponueshme, mund të përd
 
 	php artisan help migrate
 
-Mundet gjithashtu të përcaktoni mjedisin ku komanda do egzekutohet duke përdorur çelësin `--env`:
+Mundet gjithashtu të përcaktoni mjedisin ku komanda do ekzekutohet duke përdorur çelësin `--env`:
 
 **Përcaktimi i Mjedisit**
 
