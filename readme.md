@@ -28,7 +28,7 @@ Hapat që duhet të ndiqni janë si më poshtë:
  
 Pas kësaj përkthyimi juaj do të shqyrtohet dhe rrjedhimisht do të bëhet pjesë e dokumentimit zyrtar. 
 
-### a) Marrja e përkthimeve të fundit nga *repo*-ja zyrtare
+### b) Marrja e përkthimeve të fundit nga *repo*-ja zyrtare
 
 Në momentin që ju dërgoni kontributet tuaja për tu pranuar në dokumentacion, edhe të tjerë përkthyes bëjnë të njëjtën gjë. Kjo do të thotë që *repo*-ja juaj nuk përkon më me *repo*-n zyrtare dhe lipset që ju t'i sinkronizoni ato. Kjo realizhet në këtë mënyrë:
 
