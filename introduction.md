@@ -19,7 +19,7 @@ Laravel eshte i arriteshem, dhe i fuqishem, duke te siguruar mjete te fuqishme q
 
 Nje nga menyrat me te mira per te mesuar Laravel eshte te lexosh te gjith dokumentacionin. Kjo guide pershkruan te gjith aspektet e framework-ut dhe si ti aplikoni ato ne aplikacionin tend.
 
-Pervec kesaj guide, gjithashtu mund te hedhesh nje sy disa [Laravel books](http://wiki.laravel.io/Books). Keto libra te shkruara nga komuniteti sherbejne si nje resurs suplementar per mesimin rreth framework-ut:
+Pervec kesaj guide, gjithashtu mund te hedhesh nje sy disa [libra per Laravel](http://wiki.laravel.io/Books). Keto libra te shkruara nga komuniteti sherbejne si nje resurs suplementar per mesimin rreth framework-ut:
 
 - [Code Bright](https://leanpub.com/codebright) nga Dayle Rees
 - [Laravel Testing Decoded](https://leanpub.com/laravel-testing-decoded) nga Jeffrey Way
