@@ -1,18 +1,18 @@
-# Introduction
+# Prezantimi
 
-- [Laravel Philosophy](#laravel-philosophy)
-- [Learning Laravel](#learning-laravel)
-- [Development Team](#development-team)
-- [Framework Sponsors](#framework-sponsors)
+- [Filozofia e Laravel](#laravel-philosophy)
+- [Mesoni Laravel](#learning-laravel)
+- [Ekipi Zhvillues](#development-team)
+- [Sponsorat e Framework-ut](#framework-sponsors)
 
 <a name="laravel-philosophy"></a>
-## Laravel Philosophy
+## Filozofia e Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+Laravel eshte nje framework per aplikacione ne web me expresivitet, dhe sintakse elegante. Ne besojme qe zhvillimi duhet te jete kenaqesi,  eksperienca kreative qe me te vertete te permbushin. Laravel perpiqet te heqe dhimbjet e zhvillimit duke lehtesuar detyrat e zakoneshme qe perdoren ne shumicen e projekteve ne web, si autentikimi, routing, sesionet, dhe caching.
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+Laravel synon qe te beje procesin e zhvillimit me te kenaqeshem per zhvilluesit pa sakrifikuar funksionalitetet e aplikacionit. Zhvilluesit e lumtur bejn kodin me te mire. Ne kete fund, ne jemi perpjekur te kombinojme gjerat me te mira qe kemi pare ne framework-et e tjere, duke perfshire framework-et ne gjuhet e tjera te programimit, si Ruby on Rails, ASP.NET MCV, dhe Sinatra.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Laravel eshte i arriteshem, dhe i fuqishem, duke te siguruar mjete te fuqishme qe nevojiten per aplikacione te medha dhe te fuqishme. Nje inversion i madherishem i konteinerit te kontrollit, sistem migrimi shprehes, dhe integrimi i ngushte i suportit per unit testing te jep ty mjetet e duhura per te ndertuar nje aplikacion me te cilen je i ngarkuar. 
 
 <a name="learning-laravel"></a>
 ## Learning Laravel
