@@ -10,7 +10,7 @@
 
 Laravel ështe nje framework per aplikacione në web me expresivitet, dhe sintakse elegante. Ne besojmë që zhvillimi duhet të jetë kënaqësi,  eksperienca kreative që me të vertetë të përmbushin. Laravel përpiqet të heqë dhimbjet e zhvillimit duke lehtësuar detyrat e zakoneshme që përdoren në shumicën e projekteve në web, si autentikimi, routing, sesionet, dhe caching.
 
-Laravel synon që të bëje procesin e zhvillimit me të kenaqeshem për zhvilluesit pa sakrifikuar funksionalitetet e aplikacionit. Zhvilluesit e lumtur bëjn kodin më të mire. Në këte fund, ne jemi përpjekur të kombinojmë gjërat më të mira që kemi pare në framework-et e tjerë, duke përfshirë framework-et në gjuhët e tjera të programimit, si Ruby on Rails, ASP.NET MCV, dhe Sinatra.
+Laravel synon që të bëje proçesin e zhvillimit me të kenaqeshem për zhvilluesit pa sakrifikuar funksionalitetet e aplikacionit. Zhvilluesit e lumtur bëjn kodin më të mire. Në këte fund, ne jemi përpjekur të kombinojmë gjërat më të mira që kemi pare në framework-et e tjerë, duke përfshirë framework-et në gjuhët e tjera të programimit, si Ruby on Rails, ASP.NET MCV, dhe Sinatra.
 
 Laravel ështe i arritëshëm, dhe i fuqishëm, duke të siguruar mjete të fuqishme që nevojiten për aplikacione të medha dhe të fuqishme. Një inversion i madhërishem i konteinerit të kontrollit, sistem migrimi shprehës, dhe integrimi i ngushtë i suportit për unit testing të jep ty mjetet e duhura për të ndertuar një aplikacion me të cilën je i ngarkuar. 
 
@@ -19,7 +19,7 @@ Laravel ështe i arritëshëm, dhe i fuqishëm, duke të siguruar mjete të fuqishme q
 
 Një nga mënyrat më të mira për të mesuar Laravel ështe të lexosh të gjith dokumentacionin. Kjo guidë pershkruan të gjithë aspektet e framework-ut dhe si ti aplikoni ato në aplikacionin tend.
 
-Përvec kësaj guide, gjithashtu mund të hedhësh një sy disa [libra per Laravel](http://wiki.laravel.io/Books). Këto libra të shkruara nga komuniteti shërbejnë si një resurs suplementar për mësimin rreth framework-ut:
+Përveç kësaj guide, gjithashtu mund të hedhësh një sy disa [libra per Laravel](http://wiki.laravel.io/Books). Këto libra të shkruara nga komuniteti shërbejnë si një resurs suplementar për mësimin rreth framework-ut:
 
 - [Code Bright](https://leanpub.com/codebright) nga Dayle Rees
 - [Laravel Testing Decoded](https://leanpub.com/laravel-testing-decoded) nga Jeffrey Way
