@@ -1,25 +1,25 @@
 # Prezantimi
 
 - [Filozofia e Laravel](#laravel-philosophy)
-- [Mesoni Laravel](#learning-laravel)
+- [Mësoni Laravel](#learning-laravel)
 - [Ekipi Zhvillues](#development-team)
 - [Sponsorat e Framework-ut](#framework-sponsors)
 
 <a name="laravel-philosophy"></a>
 ## Filozofia e Laravel
 
-Laravel eshte nje framework per aplikacione ne web me expresivitet, dhe sintakse elegante. Ne besojme qe zhvillimi duhet te jete kenaqesi,  eksperienca kreative qe me te vertete te permbushin. Laravel perpiqet te heqe dhimbjet e zhvillimit duke lehtesuar detyrat e zakoneshme qe perdoren ne shumicen e projekteve ne web, si autentikimi, routing, sesionet, dhe caching.
+Laravel ështe nje framework per aplikacione në web me expresivitet, dhe sintakse elegante. Ne besojmë që zhvillimi duhet të jetë kënaqësi,  eksperienca kreative që me të vertetë të përmbushin. Laravel përpiqet të heqë dhimbjet e zhvillimit duke lehtësuar detyrat e zakoneshme që përdoren në shumicën e projekteve në web, si autentikimi, routing, sesionet, dhe caching.
 
-Laravel synon qe te beje procesin e zhvillimit me te kenaqeshem per zhvilluesit pa sakrifikuar funksionalitetet e aplikacionit. Zhvilluesit e lumtur bejn kodin me te mire. Ne kete fund, ne jemi perpjekur te kombinojme gjerat me te mira qe kemi pare ne framework-et e tjere, duke perfshire framework-et ne gjuhet e tjera te programimit, si Ruby on Rails, ASP.NET MCV, dhe Sinatra.
+Laravel synon që të bëje procesin e zhvillimit me të kenaqeshem për zhvilluesit pa sakrifikuar funksionalitetet e aplikacionit. Zhvilluesit e lumtur bëjn kodin më të mire. Në këte fund, ne jemi përpjekur të kombinojmë gjërat më të mira që kemi pare në framework-et e tjerë, duke përfshirë framework-et në gjuhët e tjera të programimit, si Ruby on Rails, ASP.NET MCV, dhe Sinatra.
 
-Laravel eshte i arriteshem, dhe i fuqishem, duke te siguruar mjete te fuqishme qe nevojiten per aplikacione te medha dhe te fuqishme. Nje inversion i madherishem i konteinerit te kontrollit, sistem migrimi shprehes, dhe integrimi i ngushte i suportit per unit testing te jep ty mjetet e duhura per te ndertuar nje aplikacion me te cilen je i ngarkuar. 
+Laravel ështe i arritëshëm, dhe i fuqishëm, duke të siguruar mjete të fuqishme që nevojiten për aplikacione të medha dhe të fuqishme. Një inversion i madhërishem i konteinerit të kontrollit, sistem migrimi shprehës, dhe integrimi i ngushtë i suportit për unit testing të jep ty mjetet e duhura për të ndertuar një aplikacion me të cilën je i ngarkuar. 
 
 <a name="learning-laravel"></a>
 ## Mesoni Laravel
 
-Nje nga menyrat me te mira per te mesuar Laravel eshte te lexosh te gjith dokumentacionin. Kjo guide pershkruan te gjith aspektet e framework-ut dhe si ti aplikoni ato ne aplikacionin tend.
+Një nga mënyrat më të mira për të mesuar Laravel ështe të lexosh të gjith dokumentacionin. Kjo guidë pershkruan të gjithë aspektet e framework-ut dhe si ti aplikoni ato në aplikacionin tend.
 
-Pervec kesaj guide, gjithashtu mund te hedhesh nje sy disa [libra per Laravel](http://wiki.laravel.io/Books). Keto libra te shkruara nga komuniteti sherbejne si nje resurs suplementar per mesimin rreth framework-ut:
+Përvec kësaj guide, gjithashtu mund të hedhësh një sy disa [libra per Laravel](http://wiki.laravel.io/Books). Këto libra të shkruara nga komuniteti shërbejnë si një resurs suplementar për mësimin rreth framework-ut:
 
 - [Code Bright](https://leanpub.com/codebright) nga Dayle Rees
 - [Laravel Testing Decoded](https://leanpub.com/laravel-testing-decoded) nga Jeffrey Way
@@ -28,12 +28,12 @@ Pervec kesaj guide, gjithashtu mund te hedhesh nje sy disa [libra per Laravel](h
 <a name="development-team"></a>
 ## Ekipi Zhvillues
 
-Laravel eshte krijuar nga [Taylor Otwell](https://github.com/taylorotwell), i cili vazhdon te drejtoje zhvillimin e framework-ut. Disa antare te tjere te spikatur dhe kontribues perfshijne [Dayle Rees](https://github.com/daylerees), [Shawn McCool](https://github.com/ShawnMcCool), [Jeffrey Way](https://github.com/JeffreyWay), [Jason Lewis](https://github.com/jasonlewis), [Ben Corlett](https://github.com/bencorlett), [Franz Liedke](https://github.com/franzliedke), [Dries Vints](https://github.com/driesvints), [Mior Muhammad Zaki](https://github.com/crynobone), dhe [Phil Sturgeon](https://github.com/philsturgeon).
+Laravel ështe krijuar nga [Taylor Otwell](https://github.com/taylorotwell), i cili vazhdon të drejtojë zhvillimin e framework-ut. Disa antare të tjere të spikatur dhe kontribues përfshijne [Dayle Rees](https://github.com/daylerees), [Shawn McCool](https://github.com/ShawnMcCool), [Jeffrey Way](https://github.com/JeffreyWay), [Jason Lewis](https://github.com/jasonlewis), [Ben Corlett](https://github.com/bencorlett), [Franz Liedke](https://github.com/franzliedke), [Dries Vints](https://github.com/driesvints), [Mior Muhammad Zaki](https://github.com/crynobone), dhe [Phil Sturgeon](https://github.com/philsturgeon).
 
 <a name="framework-sponsors"></a>
 ## Sponsorat e Framework-ut
 
-Organizatat e meposhteme kan kontribuar financiarisht ne zhvillimin e framework-ut Laravel:
+Organizatat e mëposhtëme kanë kontribuar financiarisht në zhvillimin e framework-ut Laravel:
 
 - [UserScape](http://userscape.com)
 - [Cartalyst](http://cartalyst.com)
