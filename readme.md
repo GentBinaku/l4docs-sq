@@ -43,5 +43,6 @@ Përpiquni ta bëni këtë hapin e dyte çdo herë para se të filloni të përk
 Teksti i përkthyer duhet:
 
  - Të jetë i shkruar në gjuhën shqipe standarte
+ - Të përdoret në vendin e duhur shkronjat 'ë' dhe 'ç'.
  - Të dërgohet për shqyrtimi sipas hapave në seksionin **Si të Kontribuoj**
  	 
