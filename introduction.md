@@ -15,25 +15,25 @@ Laravel synon qe te beje procesin e zhvillimit me te kenaqeshem per zhvilluesit 
 Laravel eshte i arriteshem, dhe i fuqishem, duke te siguruar mjete te fuqishme qe nevojiten per aplikacione te medha dhe te fuqishme. Nje inversion i madherishem i konteinerit te kontrollit, sistem migrimi shprehes, dhe integrimi i ngushte i suportit per unit testing te jep ty mjetet e duhura per te ndertuar nje aplikacion me te cilen je i ngarkuar. 
 
 <a name="learning-laravel"></a>
-## Learning Laravel
+## Mesoni Laravel
 
-One of the best ways to learn Laravel is to read through the entirety of its documentation. This guide details all aspects of the framework and how to apply them to your application.
+Nje nga menyrat me te mira per te mesuar Laravel eshte te lexosh te gjith dokumentacionin. Kjo guide pershkruan te gjith aspektet e framework-ut dhe si ti aplikoni ato ne aplikacionin tend.
 
-In addition to this guide, you may wish to check out some [Laravel books](http://wiki.laravel.io/Books). These community written books serve as a good supplemental resource for learning about the framework:
+Pervec kesaj guide, gjithashtu mund te hedhesh nje sy disa [libra per Laravel](http://wiki.laravel.io/Books). Keto libra te shkruara nga komuniteti sherbejne si nje resurs suplementar per mesimin rreth framework-ut:
 
-- [Code Bright](https://leanpub.com/codebright) by Dayle Rees
-- [Laravel Testing Decoded](https://leanpub.com/laravel-testing-decoded) by Jeffrey Way
-- [Laravel: From Apprentice To Artisan](https://leanpub.com/laravel) by Taylor Otwell
+- [Code Bright](https://leanpub.com/codebright) nga Dayle Rees
+- [Laravel Testing Decoded](https://leanpub.com/laravel-testing-decoded) nga Jeffrey Way
+- [Laravel: From Apprentice To Artisan](https://leanpub.com/laravel) nga Taylor Otwell
 
 <a name="development-team"></a>
-## Development Team
+## Ekipi Zhvillues
 
-Laravel was created by [Taylor Otwell](https://github.com/taylorotwell), who continues to lead development of the framework. Other prominent community members and contributors include [Dayle Rees](https://github.com/daylerees), [Shawn McCool](https://github.com/ShawnMcCool), [Jeffrey Way](https://github.com/JeffreyWay), [Jason Lewis](https://github.com/jasonlewis), [Ben Corlett](https://github.com/bencorlett), [Franz Liedke](https://github.com/franzliedke), [Dries Vints](https://github.com/driesvints), [Mior Muhammad Zaki](https://github.com/crynobone), and [Phil Sturgeon](https://github.com/philsturgeon).
+Laravel eshte krijuar nga [Taylor Otwell](https://github.com/taylorotwell), i cili vazhdon te drejtoje zhvillimin e framework-ut. Disa antare te tjere te spikatur dhe kontribues perfshijne [Dayle Rees](https://github.com/daylerees), [Shawn McCool](https://github.com/ShawnMcCool), [Jeffrey Way](https://github.com/JeffreyWay), [Jason Lewis](https://github.com/jasonlewis), [Ben Corlett](https://github.com/bencorlett), [Franz Liedke](https://github.com/franzliedke), [Dries Vints](https://github.com/driesvints), [Mior Muhammad Zaki](https://github.com/crynobone), dhe [Phil Sturgeon](https://github.com/philsturgeon).
 
 <a name="framework-sponsors"></a>
-## Framework Sponsors
+## Sponsorat e Framework-ut
 
-The following organizations have made financial contributions to the development of the Laravel framework:
+Organizatat e meposhteme kan kontribuar financiarisht ne zhvillimin e framework-ut Laravel:
 
 - [UserScape](http://userscape.com)
 - [Cartalyst](http://cartalyst.com)
