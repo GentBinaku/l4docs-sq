@@ -19,11 +19,11 @@ Për të krijuar një komandë tuajën, përdorni komandën Artisan `command:mak
 
 **Gjenero një Klasë për Komandën**
 
-	php artisan command:make KomandaIme
+	php artisan command:make FooCommand
 
 Klasa e komandës do të ruhet në direktorinë `app/commands`, por mund edhe të përcaktoni direktorinë ose namespace:
 
-	php artisan command:make KomandaIme --path="app/classes" --namespace="Classes"
+	php artisan command:make FooCommand --path=app/classes --namespace=Classes
 
 ### Shkrimi i Komandës
 
@@ -37,19 +37,19 @@ Metodat `getArguments` dhe `getOptions` janë vendi ku përcaktoni argumentat dh
 
 Kur përcaktoni argumentat, vektori përkufizohet si më poshtë:
 
-	array($emri, $menyra, $pershkrimi, $vleraBaze)
+	array($name, $mode, $description, $defaultValue)
 
-Argumenti `menyra` mund të jetë: `InputArgument::REQUIRED` ose `InputArgument::OPTIONAL`, për të vendosur nëse argumenti është i detyrueshëm (REQUIRED) ose opsional (OPTIONAL).
+Argumenti `mode` mund të jetë: `InputArgument::REQUIRED` ose `InputArgument::OPTIONAL`, për të vendosur nëse argumenti është i detyrueshëm (REQUIRED) ose opsional (OPTIONAL).
 
 Kur përcaktoni opsionet, vektori përkufizohet si më poshtë:
 
-	array($emri, $shkurtimi, $menyra, $pershkrimi, $vleraBaze)
+	array($name, $shortcut, $mode, $description, $defaultValue)
 
-Argumenti `menyra` mund të jetë: `InputOption::VALUE_REQUIRED`, `InputOption::VALUE_OPTIONAL`, `InputOption::VALUE_IS_ARRAY`, `InputOption::VALUE_NONE`, për të vendosur nëse opsioni është i detyrueshëm (VALUE_REQUIRED), opsional (VALUE_OPTIONAL), vektor (VALUE_IS_ARRAY) apo si çelës (VALUE_NONE).
+Argumenti `mode` mund të jetë: `InputOption::VALUE_REQUIRED`, `InputOption::VALUE_OPTIONAL`, `InputOption::VALUE_IS_ARRAY`, `InputOption::VALUE_NONE`, për të vendosur nëse opsioni është i detyrueshëm (VALUE_REQUIRED), opsional (VALUE_OPTIONAL), vektor (VALUE_IS_ARRAY) apo si çelës (VALUE_NONE).
 
 `VALUE_IS_ARRAY` përcakton që opsioni mund të përdoret disa herë kur thërritet komanda:
 
-	php artisan foo --option=nje --option=dy
+	php artisan foo --option=bar --option=baz
 
 `VALUE_NONE` përcakton që opsioni mund të përdoret si çelës.
 
@@ -61,15 +61,15 @@ Kur komanda ekzekutohet, do t'ju duhet të aksesoni vlerat e argumentave apo ops
 
 **Marrja e Vlerës së një Argumenti**
 
-	$vlera = $this->argument('emri');
+	$value = $this->argument('name');
 
 **Marrja e Vlerave të të Gjithë Argumentave**
 
-	$argumentat = $this->argument();
+	$arguments = $this->argument();
 
 **Marrja e Vlerës së një Opsioni**
 
-	$vlera = $this->option('emri');
+	$value = $this->option('name');
 
 **Marrja e Vlerave të të Gjitha Opsioneve**
 
@@ -93,22 +93,22 @@ Gjithashtu mund të bëni pyetje me metodat `ask` dhe `confirm` të cilat plotë
 
 **Bërja e Pyetjes**
 
-	$emri = $this->ask('Si e keni emrin?');
+	$name = $this->ask('Si e keni emrin?');
 
 **Pyetje për Mesazhe Sekrete**
 
-	$fjalekalimi = $this->secret('Cili eshte fjalekalimi?');
+	$password = $this->secret('Cili eshte fjalekalimi?');
 
 **Pyetja për Konfirmim**
 
 	if ($this->confirm('Doni të vazhdoni? [po|jo]'))
 	{
-		// logjika
+		//
 	}
 
 Mund edhe të përcaktoni një vlerë bazë për metodën `confirm`, që duhet të jetë `true` ose `false`:
 
-	$this->confirm($pyetja, true);
+	$this->confirm($question, true);
 
 <a name="regjistrimi-i-komandave"></a>
 ## Regjistrimi i Komandave
@@ -117,13 +117,13 @@ Pasi ta keni mbaruar komandën, duhet ta regjistroni me Artisan që të bëhet e
 
 **Regjistrimi i Komandës me Artisan**
 
-	Artisan::add(new KomandaIme);
+	Artisan::add(new CustomCommand);
 
 Nëse komanda është regjistruar në [Mbajtësin IoC](/docs/ioc), mund të përdorni metodën `Artisan::resolve` për ta bërë të disponueshëm tek Artisan:
 
 **Regjistrimi i Komandës që Ndodhet në Mbajtësin IoC**
 
-	Artisan::resolve('regjistrimi.emri');
+	Artisan::resolve('binding.name');
 
 <a name="therritja-e-komandave-te-tjera"></a>
 ## Thërritja e Komandave të Tjera
@@ -132,4 +132,4 @@ Ndonjëherë mund t'ju duhet të thërrisni komanda të tjera prej komandës tua
 
 **Thërritja e një Komande Tjetër**
 
-	$this->call('komanda.emri', array('argument' => 'nje', '--option' => 'dy'));
+	$this->call('command.name', array('argument' => 'foo', '--option' => 'bar'));

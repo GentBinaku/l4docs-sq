@@ -22,16 +22,16 @@ Një shembull i një klase Kontrolluesi:
 		 */
 		public function showProfile($id)
 		{
-			$anetari = Anetari::find($id);
+			$user = User::find($id);
 
-			return View::make('anetari.profili', array('anetari' => $anetari));
+			return View::make('user.profile', array('user' => $user));
 		}
 
 	}
 
 Të gjithë kontrolluesit duhet të zgjerojnë klasën `BaseController`, e ruajtur gjithashtu në direktorinë `app/controllers` dhe mund të përdoret për të vendosur logjikë të ndarë nga kontrolluesit. Klasa `BaseController` zgjeron klasën `Controller`. Tani mund të ndërtojmë një route për një kontrollues si më poshtë:
 
-	Route::get('anetari/{id}', 'UserController@showProfile');
+	Route::get('user/{id}', 'UserController@showProfile');
 
 Nëse vendosni ti organizoni kontrolluesit me namespaces, duhet thjeshtë të përdorni emrin e plotë të klasës kur krijoni route-at:
 
@@ -40,7 +40,7 @@ Nëse vendosni ti organizoni kontrolluesit me namespaces, duhet thjeshtë të p�
 Mundet gjithashtu të përcaktoni emra për route-at:
 
 	Route::get('foo', array('uses' => 'FooController@method',
-											'as' => 'emri'));
+											'as' => 'name'));
 
 Për të gjeneruar një URL nga një veprim i kontrolluesit, mund të përdorni metodën `URL::action`:
 
@@ -48,7 +48,7 @@ Për të gjeneruar një URL nga një veprim i kontrolluesit, mund të përdorni 
 
 Mundet gjithashtu të merrni emrin e veprimit të kontrolluesit që po egzekutohet, duke përdorur metodën `currentRouteAction`:
 
-	$veprimi = Route::currentRouteAction();
+	$action = Route::currentRouteAction();
 
 <a name="filtrat-e-kontrollueseve"></a>
 ## Filtrat e Kontrolluesëve
@@ -59,12 +59,12 @@ Mundet gjithashtu të merrni emrin e veprimit të kontrolluesit që po egzekutoh
 				'uses' => 'UserController@showProfile'));
 
 
-However, you may also specify filters from within your controller:
+Megjithatë, mund ti përcaktoni filtrat edhe brenda kontrolluesëve:
 
 	class UserController extends BaseController {
 
 		/**
-		 * Instantiate a new UserController instance.
+		 * Nis nje instance te re te kontrolluesit.
 		 */
 		public function __construct()
 		{
@@ -78,12 +78,12 @@ However, you may also specify filters from within your controller:
 
 	}
 
-You may also specify controller filters inline using a Closure:
+Përmbajtja e filtrit mund të përcaktohet edhe brenda një funksioni anonim:
 
 	class UserController extends BaseController {
 
 		/**
-		 * Instantiate a new UserController instance.
+		 * Nis nje instance te re te kontrolluesit.
 		 */
 		public function __construct()
 		{
@@ -98,13 +98,13 @@ You may also specify controller filters inline using a Closure:
 <a name="kontrolluesit-restful"></a>
 ## Kontrolluesit RESTful
 
-Laravel allows you to easily define a single route to handle every action in a controller using simple, REST naming conventions. First, define the route using the `Route::controller` method:
+Laravel ju lejon të përcaktoni një route të vetme që merret me të gjitha veprimet e një kontrolluesi, duke përdorur konvencione REST. Fillimisht, shkruani një route duke përdorur metodën `Route::controller`:
 
-**Defining A RESTful Controller**
+**Përcaktimi i një Kontrolluesi RESTful**
 
 	Route::controller('users', 'UserController');
 
-The `controller` method accepts two arguments. The first is the base URI the controller handles, while the second is the class name of the controller. Next, just add methods to your controller, prefixed with the HTTP verb they respond to:
+Metoda `controller` pranon dy argumenta. I pari është URI ku aplikohet kontrolluesi, ndërsa i dyti është emri i klasës së kontrolluesit. Tani ju mbetet vetëm të krijoni metoda në kontrollues me parashtesë foljen HTTP që duhet ti përgjigjet:
 
 	class UserController extends BaseController {
 
@@ -120,30 +120,30 @@ The `controller` method accepts two arguments. The first is the base URI the con
 
 	}
 
-The `index` methods will respond to the root URI handled by the controller, which, in this case, is `users`.
+Veprimi `index` do ti përgjigjet URI-së bazë të kontrolluesit, që në rastin tonë është `users`.
 
-If your controller action contains multiple words, you may access the action using "dash" syntax in the URI. For example, the following controller action on our `UserController` would respond to the `users/admin-profile` URI:
+Nëse veprimi i kontrolluesit përmban disa fjalë, URI-ja mund të aksesohet duke i ndarë fjalët me minus (-). Për shembull, veprimi më poshtë i kontrolluesit `UserController` do ti përgjigjej URI-së `users/admin-profile`:
 
 	public function getAdminProfile() {}
 
 <a name="kontrolluesit-resource"></a>
 ## Kontrolluesit Resource
 
-Resource controllers make it easier to build RESTful controllers around resources. For example, you may wish to create a controller that manages "photos" stored by your application. Using the `controller:make` command via the Artisan CLI and the `Route::resource` method, we can quickly create such a controller.
+Kontrolluesit resource e bëjnë edhe më të lehtë ndërtimin e kontrolluesëve RESTful. Për shembull, mund t'ju duhet të krijoni një kontrollues që menaxhon "fotot" e ruajtura nga aplikacioni. Duke përdorur komandën Artisan `controller:make` dhe metodën `Route::resource`, mund të ndërtojmë shumë shpejt një kontrollues të tillë.
 
-To create the controller via the command line, execute the following command:
+Për ta krijuar kontrolluesin përmes Artisan, egzekutoni komandën më poshtë:
 
 	php artisan controller:make PhotoController
 
-Now we can register a resourceful route to the controller:
+Tani mund të regjistrojmë një route:
 
 	Route::resource('photo', 'PhotoController');
 
-This single route declaration creates multiple routes to handle a variety of RESTful actions on the photo resource. Likewise, the generated controller will already have stubbed methods for each of these actions with notes informing you which URIs and verbs they handle.
+Kjo route e vetme krijon disa route-a që i përgjigjen një sërë veprimesh REST në kontrolluesin resource. Gjithashtu, kontrolluesi i gjeneruar do të ketë metoda të paravendosura për secilin nga këto veprime, me shënime për URI-të që u përgjigjen dhe foljet HTTP.
 
-**Actions Handled By Resource Controller**
+**Veprimet e një Kontrolluesi Resource**
 
-Verb      | Path                  | Action       | Route Name
+Folja     | URI                   | Aksioni      | Emri i route-ës
 ----------|-----------------------|--------------|---------------------
 GET       | /resource             | index        | resource.index
 GET       | /resource/create      | create       | resource.create
@@ -153,13 +153,13 @@ GET       | /resource/{id}/edit   | edit         | resource.edit
 PUT/PATCH | /resource/{id}        | update       | resource.update
 DELETE    | /resource/{id}        | destroy      | resource.destroy
 
-Sometimes you may only need to handle a subset of the resource actions:
+Ndonjëherë mund t'ju duhet të përdorni vetëm disa veprime të caktuara:
 
 	php artisan controller:make PhotoController --only=index,show
 
 	php artisan controller:make PhotoController --except=index
 
-And, you may also specify a subset of actions to handle on the route:
+Në të njëjtën formë, mund të përcaktoni vetëm disa veprimet që duhet të route-ohen:
 
 	Route::resource('photo', 'PhotoController',
 					array('only' => array('index', 'show')));
@@ -167,9 +167,9 @@ And, you may also specify a subset of actions to handle on the route:
 <a name="trajtimi-metodave-qe-mungojne"></a>
 ## Trajtimi i Metodave që Mungojnë
 
-A catch-all method may be defined which will be called when no other matching method is found on a given controller. The method should be named `missingMethod`, and receives the parameter array for the request as its only argument:
+Mund të përcaktohet një metodë që i kap të gjitha, e cila do të egzekutohet vetëm kur asnjë metodë tjetër nuk është thërritur. Metoda duhet të quhet `missingMethod` dhe merr vektorin `parameter` si argumentin e vetëm:
 
-**Defining A Catch-All Method**
+**Përcaktimi i një Metode që i Kap të Gjitha**
 
 	public function missingMethod($parameters)
 	{

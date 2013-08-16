@@ -69,7 +69,7 @@ Mjedisin aktual të aplikacionit mund ta detektoni përmes metodës `environment
 
 **Aksesimi i Mjedisit Aktual të Aplikacionit**
 
-	$mjedisi = App::environment();
+	$environment = App::environment();
 
 <a name="statusi-mirembajtjes"></a>
 ## Statusi i Mirëmbajtjes
@@ -88,5 +88,5 @@ Për të shfaqur një pamje të personalizuar gjatë kohës së mirëmbajtjes, m
 
 	App::down(function()
 	{
-		return Response::view('mirembajtje', array(), 503);
+		return Response::view('maintenance', array(), 503);
 	});

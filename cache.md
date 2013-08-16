@@ -11,59 +11,59 @@
 
 Laravel ofron një API të unifikuar për sisteme të ndryshme cache. Konfigurimi i cache ndodhet në `app/config/cache.php`. Në këtë skedar mund të përcaktoni cilin driver doni të përdorni. Laravel mbështet teknologji popullore për caching si [Memcached](http://memcached.org) dhe [Redis](http://redis.io).
 
-Skedari i konfigurimit të cache mban gjithashtu opsione të tjera, të dokumentuara brenda skedari, kështu që sigurohuni ta lexoni. Laravel vjen me `file` cache driver të paravendosur, i cili i ruan objektet e serializuar në skedarë. Për aplikacione të mëdha, rekomandohet të përdorni cache memorje si Memcached apo APC.
+Skedari i konfigurimit të cache mban gjithashtu opsione të tjera, të dokumentuara brenda skedarit, kështu që sigurohuni ta lexoni. Laravel vjen me `file` cache driver të paravendosur, i cili i ruan objektet e serializuar në skedarë. Për aplikacione të mëdha, rekomandohet të përdorni cache memorje si Memcached apo APC.
 
 <a name="perdorimi-cache"></a>
 ## Përdorimi i Cache
 
 **Ruajtja në Cache**
 
-	Cache::put('celesi', 'vlera', $minutat);
+	Cache::put('key', 'value', $minutes);
 
 **Ruajtja në Cache nëse Çelësi nuk Egziston**
 
-	Cache::add('celesi', 'vlera', $minutat);
+	Cache::add('key', 'value', $minutes);
 
 **Kontrolli për Egzistencën e një Çelësi**
 
-	if (Cache::has('celesi'))
+	if (Cache::has('key'))
 	{
 		//
 	}
 
 **Marrja nga Cache**
 
-	$vlera = Cache::get('celesi');
+	$value = Cache::get('key');
 
 **Marrja e një Vlere ose Kthimi i një Vlere Bazë**
 
-	$vlera = Cache::get('celesi', 'vlera baze');
+	$value = Cache::get('key', 'default');
 
-	$vlera = Cache::get('celesi', function() { return 'vlera baze'; });
+	$value = Cache::get('key', function() { return 'default'; });
 
 **Ruajtja në Cache Përgjithmonë**
 
-	Cache::forever('celesi', 'vlera');
+	Cache::forever('key', 'value');
 
 Ndonjëherë mund t'ju duhet të merrni një vlerë nga cache, por gjithashtu të ruani një vlerë bazë nëse çelësi nuk egziston. Mund ta bëni këtë duke përdorur metodën `Cache::remember`:
 
-	$vlera = Cache::remember('perdoruesit', $minutat, function()
+	$value = Cache::remember('users', $minutes, function()
 	{
-		return DB::table('perdoruesit')->get();
+		return DB::table('users')->get();
 	});
 
 Mund edhe të kombinoni metodat `remember` dhe `forever`:
 
-	$vlera = Cache::rememberForever('perdoruesit', function()
+	$value = Cache::rememberForever('users', function()
 	{
-		return DB::table('perdoruesit')->get();
+		return DB::table('users')->get();
 	});
 
 Të gjitha vlerat e ruajtura në cache serializohen më parë, kështu që mund të përdorni çdo tip të dhëne që dëshironi.
 
 **Fshirja e një Çelësi nga Cache**
 
-	Cache::forget('celesi');
+	Cache::forget('key');
 
 <a name="rritja-dhe-zvogelimi"></a>
 ## Rritja & Zvogëlimi
@@ -72,15 +72,15 @@ Të gjitha driver-at përveç `file` dhe `database` lejojnë përdorimin e `incr
 
 **Rritja e një Vlere**
 
-	Cache::increment('celesi');
+	Cache::increment('key');
 
-	Cache::increment('celesi', $sasia);
+	Cache::increment('key', $amount);
 
 **Zvogëlimi i një Vlere**
 
-	Cache::decrement('celesi');
+	Cache::decrement('key');
 
-	Cache::decrement('celesi', $sasia);
+	Cache::decrement('key', $amount);
 
 <a name="seksionet-e-cache"></a>
 ## Seksionet e Cache
@@ -91,19 +91,19 @@ Seksionet e cache ju lejojnë të gruponi vlera të lidhura me njëra tjetrën d
 
 **Aksesimi i një Seksioni**
 
-	Cache::section('njerezit')->put('Beni', $beni);
+	Cache::section('people')->put('John', $john);
 
-	Cache::section('njerezit')->put('Arjana', $arjana);
+	Cache::section('people')->put('Anne', $anne);
 
 Gjithashtu mund të aksesoni çelësa individualë ose të përdorni metoda të tjera si `increment` dhe `decrement`:
 
 **Aksesimi i Vlerave Individuale në një Seksion**
 
-	$arjana = Cache::section('njerezit')->get('Arjana');
+	$anne = Cache::section('people')->get('Anne');
 
 Në fund, mund ti pastroni të gjitha vlerat në një seksion:
 
-	Cache::section('njerezit')->flush();
+	Cache::section('people')->flush();
 
 <a name="cache-ne-databaze"></a>
 ## Cache në Databazë
