@@ -1,7 +1,7 @@
 # Përkthimi i Dokumentimit të Laravel-it në Gjuhën Shqipe
 
 - [Hyrje](#hyrje)
-- [Si të Kontribuoj](#si-te-kotribuoj)
+- [Si të Kontribuoj](#si-te-kontribuoj)
 - [Rregullorja](#rregullorja)
 
 <a name="hyrje"></a>
@@ -10,7 +10,7 @@
 Përkthimi i Dokumentimit të Laravel-it në Gjuhën Shqipe
 Laravel-i është një framework elegant për të krijuar aplikacione interneti në PHP dhe ky është dokumentimi zyrtar në gjuhën shqipe. Ky dokumentim mirëmbahet nga [Fadion Dashi](https://twitter.com/jonidashi) dhe [Baki Goxhaj](https://twitter.com/banago) dhe është i hapur për kontribute nga gjithë komuniteti. Qëllimi i këti projekti është popullarizimi i Laravel-it në trojet shqipfolëse si një produkt i një ciësie të lartë për punën që kryen.
 
-<a name="si-te-kotribuoj"></a>
+<a name="si-te-kontribuoj"></a>
 ## Si të Kontribuoj
 
 Dukumentimi është i shkruar në formatin [Markdown](http://daringfireball.net/projects/markdown/) dhe është i hapur për tu përkthyer në gjuhën shqipe nga të gjithë. Ju duhet të keni një llogari në Github për të kontibuar. 
@@ -45,4 +45,3 @@ Teksti i përkthyer duhet:
  - Të jetë i shkruar në gjuhën shqipe standarte
  - Të përdoren në vendin e duhur shkronjat 'ë' dhe 'ç'.
  - Të dërgohet për shqyrtimi sipas hapave në seksionin **Si të Kontribuoj**
- 	 	
