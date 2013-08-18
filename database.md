@@ -1,60 +1,60 @@
-# Basic Database Usage
+# Fillimi me Bazat e të Dhënave
 
-- [Configuration](#configuration)
-- [Running Queries](#running-queries)
-- [Database Transactions](#database-transactions)
-- [Accessing Connections](#accessing-connections)
-- [Query Logging](#query-logging)
+- [Konfigurimi](#konfigurimi)
+- [Ekzekutimi i Query-ve](#ekzekutimi-query)
+- [Transaksionet](#transaksionet)
+- [Aksesimi i Lidhjeve](#aksesimi-lidhjeve)
+- [Logimi i Query-ve](#logimi-query)
 
-<a name="configuration"></a>
-## Configuration
+<a name="konfigurimi"></a>
+## Konfigurimi
 
-Laravel makes connecting with databases and running queries extremely simple. The database configuration file is `app/config/database.php`. In this file you may define all of your database connections, as well as specify which connection should be used by default. Examples for all of the supported database systems are provided in this file.
+Laravel e bën lidhjen me bazat e të dhënave dhe ekzekutimin e query-ve shumë të thjeshtë. Skedari i konfigurimit të bazës së të dhënave është `app/config/database.php`. Në këtë skedar mund të përcaktoni të gjitha lidhjet dhe një të paravendosur. Shembuj për të gjitha sistemet e përkrahura ndohen në po atë skedar.
 
-Currently Laravel supports four database systems: MySQL, Postgres, SQLite, and SQL Server.
+Aktualisht, Laravel përkrah katër sisteme: MySQL, Postgres, SQLite dhe SQL Server.
 
-<a name="running-queries"></a>
-## Running Queries
+<a name="ekzekutimi-query"></a>
+## Ekzekutimi i Query-ve
 
-Once you have configured your database connection, you may run queries using the `DB` class.
+Pasi të keni konfiguruar lidhjen me bazën e të dhënave, mund të ekzekutoni query duke përdorur klasën `DB`.
 
-**Running A Select Query**
+**Ekzekutimi i një Query SELECT**
 
 	$results = DB::select('select * from users where id = ?', array(1));
 
-The `select` method will always return an `array` of results.
+Metoda `select` do të kthejë gjithmonë një `vektor` me rezultate.
 
-**Running An Insert Statement**
+**Ekzekutimi i një Query INSERT**
 
 	DB::insert('insert into users (id, name) values (?, ?)', array(1, 'Dayle'));
 
-**Running An Update Statement**
+**Ekzekutimi i një Query UPDATE**
 
 	DB::update('update users set votes = 100 where name = ?', array('John'));
 
-**Running A Delete Statement**
+**Ekzekutimi i një Query DELETE**
 
 	DB::delete('delete from users');
 
-> **Note:** The `update` and `delete` statements return the number of rows affected by the operation.
+> **Note:** Query-t `update` dhe `delete` kthejne numrin e rreshtave të prekur nga veprimi.
 
-**Running A General Statement**
+**Ekzekutimi i një Query të Përgjithshme**
 
 	DB::statement('drop table users');
 
-You may listen for query events using the `DB::listen` method:
+Mund të "dëgjoni" për evente të bazës së të dhënave duke përdorur metodën `DB::listen`:
 
-**Listening For Query Events**
+**Dëgjimi për Evente**
 
 	DB::listen(function($sql, $bindings, $time)
 	{
 		//
 	});
 
-<a name="database-transactions"></a>
-## Database Transactions
+<a name="transaksionet"></a>
+## Transaksionet
 
-To run a set of operations within a database transaction, you may use the `transaction` method:
+Për të ekzekutuar disa veprime brenda një transaksioni të vetëm, mund të përdorni metodën `transaction`:
 
 	DB::transaction(function()
 	{
@@ -63,24 +63,24 @@ To run a set of operations within a database transaction, you may use the `trans
 		DB::table('posts')->delete();
 	});
 
-<a name="accessing-connections"></a>
-## Accessing Connections
+<a name="aksesimi-lidhjeve"></a>
+## Aksesimi i Lidhjeve
 
-When using multiple connections, you may access them via the `DB::connection` method:
+Kur përdorni më shumë se një lidje, mund ti aksesoni përmes metodës `DB::connection`:
 
 	$users = DB::connection('foo')->select(...);
 
-You may also access the raw, underlying PDO instance:
+Gjithashtu, mund të merrni instancën PDO:
 
 	$pdo = DB::connection()->getPdo();
 
-Sometimes you may need to reconnect to a given database:
+Ndonjëhere mund t'ju duhet të rilidheni me një bazë të dhënash:
 
 	DB::reconnect('foo');
 
-<a name="query-logging"></a>
-## Query Logging
+<a name="logimi-query"></a>
+## Logimi i Query-ve
 
-By default, Laravel keeps a log in memory of all queries that have been run for the current request. However, in some cases, such as when inserting a large number of rows, this can cause the application to use excess memory. To disable the log, you may use the `disableQueryLog` method:
+Laravel i ruan në memorje të gjitha query-t e ekzekutuara për kërkesën aktuale. Megjithatë, në disa raste, si në futjen e një numri të madh rreshtash, kjo mund të bëjë që aplikacioni të përdorë më shumë se memorja në dispozicion. Për të çaktivizuar logimin, mund të përdorni metodën `disableQueryLog`:
 
 	DB::connection()->disableQueryLog();
